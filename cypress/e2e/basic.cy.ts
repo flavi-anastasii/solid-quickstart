@@ -5,11 +5,15 @@ describe('empty spec', () => {
 
   it('display header text', () => {
     cy.get('h1')
-    .contains('Hello World!', { matchCase: false })
+      .contains('Hello World!', { matchCase: false })
   })
 
-  it('displays Click button', () => {
+  it('displays a button directing to streetartoronto.ca', () => {
     cy.get('button')
-    .contains('Clicks');
+      .contains('Clicks')
+      .click()
+      .then(() => {
+        cy.visit('https://streetartoronto.ca')
+      })
   })
 })
